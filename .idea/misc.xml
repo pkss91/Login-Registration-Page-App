@@ -5,8 +5,14 @@
       <map>
         <entry key="..\:/Users/kho05/Downloads/LoginExample-master/LoginExample-master/app/src/main/res/layout/activity_join.xml" value="0.22" />
         <entry key="..\:/Users/kho05/Downloads/LoginExample-master/LoginExample-master/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/kho05/LoginRegistration/app/src/main/res/layout/activity_history.xml" value="0.25" />
+        <entry key="..\:/Users/kho05/LoginRegistration/app/src/main/res/layout/activity_homepage.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/kho05/LoginRegistration/app/src/main/res/layout/activity_innerlayout.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/kho05/LoginRegistration/app/src/main/res/layout/activity_join.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/kho05/LoginRegistration/app/src/main/res/layout/activity_login.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/kho05/LoginRegistration/app/src/main/res/layout/innerlayout.xml" value="0.18" />
+        <entry key="..\:/Users/kho05/LoginRegistration/app/src/main/res/layout/recyclerView.xml" value="0.22" />
+        <entry key="..\:/Users/kho05/LoginRegistration/app/src/main/res/layout/recycler_view.xml" value="0.25" />
       </map>
     </option>
   </component>
