@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Path;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +35,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Toast.makeText(HistoryActivity.this, "spot1", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view);
 
@@ -43,29 +46,29 @@ public class HistoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         ServiceApi apiInterface = RetrofitClient.getClient().create(ServiceApi.class);
-
-        Call<HistoryResponse> call = apiInterface.getData();
+        Call<List<HistoryResponse>> call = apiInterface.getData();
 
         recyclerAdapter = new RecyclerAdapter(getApplicationContext(), null);
         recyclerView.setAdapter(recyclerAdapter);
 
-        call.enqueue(new Callback<HistoryResponse>() {
+        call.enqueue(new Callback<List<HistoryResponse>>() {
             @Override
-            public void onResponse(Call<HistoryResponse> call, Response<HistoryResponse> response) {
+            public void onResponse(Call<List<HistoryResponse>> call, Response<List<HistoryResponse>> response) {
+                List<HistoryResponse> historyResponses = response.body();
+                Toast.makeText(HistoryActivity.this, "History", Toast.LENGTH_SHORT).show();
 
-                dataList = response.body();
-
-                Log.d("Response", dataList.toString());
-
-                dataInfo = dataList.result;
+                //looping through entire history responses list
+                for (int i=0;i<historyResponses.size();i++)
+                {
+                    Log.d("Response", historyResponses.get(i).getEventType());
+                }
 
                 recyclerAdapter = new RecyclerAdapter(getApplicationContext(), dataInfo);
                 recyclerView.setAdapter(recyclerAdapter);
             }
 
             @Override
-            public void onFailure(Call<HistoryResponse> call, Throwable t) {
-
+            public void onFailure(Call<List<HistoryResponse>> call, Throwable t) {
                 Log.d("Response", t.getMessage());
             }
         });
